@@ -12,7 +12,7 @@ mkdir -p src/main/resources/xsd/account
 mkdir -p src/main/resources/xsd/map
 mkdir -p src/main/resources/xsd/server
 echo "Generating XSD schemas"
-for xml in `find src/main/resources/raw/ -name '*.xml'`;
+for xml in `find src/main/resources/raw -name '*.xml'`;
 do
     input=$xml;
     output=`echo $xml | sed 's/raw/xsd/g' | sed 's/\.xml/\.xsd/g'`;
@@ -20,7 +20,7 @@ do
     echo "\t"$xml" -> "$output;
 done
 echo "Generating namespaces for XSD schemas"
-for xsd in `find src/main/resources/xsd/ -name '*.xsd'`;
+for xsd in `find src/main/resources/xsd -name '*.xsd'`;
 do
     p=`echo $xsd | sed 's/.*xsd\//moe.pizza.eveapi.generated./' | sed 's:/:.:' | sed 's/\.xsd$//g'`;
     echo "\t"$p" -> "$xsd;

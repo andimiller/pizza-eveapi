@@ -18,8 +18,16 @@ object Types {
 
   case class Location(
                        solarSystem: Option[SolarSystem],
-                       station: Option[Station]
+                       station: Option[Station],
+                       structure: Option[Structure]
                      )
+
+  case class Structure(
+                        id_str: String,
+                        href: String,
+                        id: Long,
+                        name: String
+                      )
 
   case class Station(
                      id_str: String,
